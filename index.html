@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070b17">
+  <title>Pincel Mágico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- MENU -->
+    <section id="menu" class="screen active">
+      <header class="menu-head">
+        <h1>Pincel Mágico</h1>
+        <p>Escolha uma cor, depois toque nos quadradinhos com o mesmo número.</p>
+      </header>
+      <div id="levelGrid" class="level-grid"></div>
+    </section>
+
+    <!-- JOGO -->
+    <section id="game" class="screen">
+      <header class="topbar">
+        <button id="btnBack" class="icon-btn" aria-label="Voltar ao menu">←</button>
+        <div class="title">
+          <strong id="levelName">—</strong>
+          <span id="stats">0% · 00:00</span>
+        </div>
+        <button id="btnSound" class="icon-btn" aria-label="Ligar ou desligar o som">🔊</button>
+      </header>
+
+      <div class="progress"><div id="progressBar"></div></div>
+
+      <div id="boardWrap" class="board-wrap">
+        <div id="board" class="board"></div>
+      </div>
+
+      <aside class="panel">
+      <div class="tools">
+        <button id="btnZoomOut" aria-label="Diminuir">−</button>
+        <button id="btnZoomIn" aria-label="Aumentar">+</button>
+        <button id="btnMove" aria-pressed="false">✋ Mover</button>
+        <button id="btnHint">💡 Dica</button>
+        <button id="btnReset" aria-label="Recomeçar">↺</button>
+      </div>
+
+      <div id="palette" class="palette" role="toolbar" aria-label="Cores"></div>
+      </aside>
+    </section>
+
+  </main>
+
+  <!-- VITÓRIA -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card">
+      <h2>Ficou lindo! 🎉</h2>
+      <canvas id="preview" width="240" height="240"></canvas>
+      <p id="winStats"></p>
+      <div class="modal-actions">
+        <button id="btnNext" class="primary">Próximo desenho</button>
+        <button id="btnMenu">Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIRMAR RECOMEÇAR -->
+  <div id="confirm" class="modal" hidden>
+    <div class="modal-card small">
+      <h2>Recomeçar desenho?</h2>
+      <p>Todo o progresso deste desenho será apagado.</p>
+      <div class="modal-actions">
+        <button id="btnConfirmYes" class="primary">Recomeçar</button>
+        <button id="btnConfirmNo">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
